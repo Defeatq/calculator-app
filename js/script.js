@@ -55,7 +55,7 @@ UI_ELEMENTS.OPERATION_BUTTONS.forEach(button => {
     if ( isOperatorNotOneInARow ) {
       renderDelete();
       expression = expression.slice(0, -1) + buttonValueText;
-      renderDisplay( outputTextNotCleared );
+      renderDisplay( expression );
       return
     }
 
@@ -83,7 +83,7 @@ UI_ELEMENTS.DELETE_BUTTON.addEventListener('click', () => {
   isOperatorNotOneInARow = false;
 
   const isOperatorLastChar = AVAILABLE_OPERATORS.includes(UI_ELEMENTS.CALCULATOR_OUTPUT.textContent.trim().slice(-1));
-  
+
   if ( isOperatorLastChar ) {
     isOperatorNotOneInARow = true;
   };
