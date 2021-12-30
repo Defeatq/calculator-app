@@ -1,0 +1,83 @@
+@charset "UTF-8";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class], ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body, h1, h2, h3, h4, p, ul[class], ol[class],
+li, figure, figcaption, blockquote, dl, dd {
+  margin: 0;
+}
+
+.font-style {
+  font-family: "Work Sans", sans-serif;
+  color: #FFFFFF;
+}
+
+.calculator-body {
+  position: relative;
+  background-color: #17171C;
+  max-width: 380px;
+  max-height: 582px;
+  padding: 21px 20px 25px;
+  margin: 0 auto;
+}
+.calculator-body__display {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 96px;
+  margin: 0 8px;
+}
+.calculator-body__buttons {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.button-style {
+  background-color: #2E2F38;
+  font-size: 32px;
+  width: 69px;
+  height: 72px;
+  margin: 8px;
+  border: 0px;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.button-style:hover {
+  background-color: #FFFFFF;
+  color: #2E2F38;
+  transition: 0.3s;
+}
+.button-style:hover svg path {
+  fill: #2E2F38;
+}
+.button-operation {
+  background-color: #4B5EFC;
+}
+.button-operation:hover {
+  color: #4B5EFC;
+}
+.button-clear {
+  background-color: #4E505F;
+}
+.button-clear:hover {
+  color: #4E505F;
+}
+.button-size-medium {
+  width: 153px;
+}
+.button-size-big {
+  width: 238px;
+}
+
+/*# sourceMappingURL=style.css.map */
