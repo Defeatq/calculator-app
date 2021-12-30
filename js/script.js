@@ -60,7 +60,7 @@ UI_ELEMENTS.OPERATION_BUTTONS.forEach(button => {
     }
 
     expression += buttonValueText;
-    renderDisplay( outputTextNotCleared );
+    renderDisplay( expression );
     isOperatorNotOneInARow = true;
   });
 });
@@ -83,7 +83,7 @@ UI_ELEMENTS.DELETE_BUTTON.addEventListener('click', () => {
   isOperatorNotOneInARow = false;
 
   const isOperatorLastChar = AVAILABLE_OPERATORS.includes(UI_ELEMENTS.CALCULATOR_OUTPUT.textContent.trim().slice(-1));
-
+  
   if ( isOperatorLastChar ) {
     isOperatorNotOneInARow = true;
   };
