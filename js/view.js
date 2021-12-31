@@ -12,6 +12,7 @@ export function renderDisplay(visibleExpression) {
 
   if ( visibleExpression.length >= 7 ) {
     UI_ELEMENTS.CALCULATOR_OUTPUT.textContent = '...' + visibleExpression.slice( -4 );
+    return
   }
 }
 
