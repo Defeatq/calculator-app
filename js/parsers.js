@@ -45,10 +45,13 @@ function parseMultiDigitExpressionToArray(string) {
 
   charList.forEach((char, i) => {
     const isLastChar = (string.length - 1) === i;
-    const isNum = typeof +char === 'number' && !isNaN( +char );
+    const isNum = typeof +char === 'number' &&
+                  !isNaN( +char );
     const isMultiNum = fullNumber.length === 0;
+    const isDecimalSeparator = char === '.';
 
-    if ( isNum ) {
+    if ( isNum ||
+         isDecimalSeparator ) {
       if ( isLastChar ) {
         fullNumber += char;
         parsedList.push( fullNumber );
