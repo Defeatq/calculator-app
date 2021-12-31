@@ -12,7 +12,7 @@ export function renderDisplay(text) {
 
   const displayLength = UI_ELEMENTS.CALCULATOR_OUTPUT.textContent.trim().length;
   if ( displayLength >= 7 ) {
-    UI_ELEMENTS.CALCULATOR_OUTPUT.textContent = '...' + UI_ELEMENTS.CALCULATOR_OUTPUT.textContent.slice(-3);
+    UI_ELEMENTS.CALCULATOR_OUTPUT.textContent = '...' + UI_ELEMENTS.CALCULATOR_OUTPUT.textContent.slice(-4);
   }
 }
 
@@ -40,6 +40,6 @@ export function renderEqual(expressionResult) {
 
   const displayLength = UI_ELEMENTS.CALCULATOR_OUTPUT.textContent.trim().length;
   if ( displayLength >= 7 ) {
-    UI_ELEMENTS.CALCULATOR_OUTPUT.textContent = UI_ELEMENTS.CALCULATOR_OUTPUT.textContent.slice(0, 3) + '...';
+    UI_ELEMENTS.CALCULATOR_OUTPUT.textContent = UI_ELEMENTS.CALCULATOR_OUTPUT.textContent.slice(0, 4) + '...';
   }
 }

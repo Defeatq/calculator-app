@@ -40,44 +40,20 @@ let isOperatorNotOneInARow = false;
 init();
 
 UI_ELEMENTS.NUMBER_BUTTONS.forEach(button => {
-  button.addEventListener('click', buttonValue => {
-    const buttonValueText = buttonValue.target.textContent.trim();
-    expression += buttonValueText;
-    renderDisplay( expression );
-    isOperatorNotOneInARow = false;
-  });
+  button.addEventListener('click', handleNumber( button ));
 });
 
 UI_ELEMENTS.OPERATION_BUTTONS.forEach(button => {
-  button.addEventListener('click', buttonValue => {
-    const buttonValueText = buttonValue.target.textContent.trim();
-
-    if ( isOperatorNotOneInARow ) {
-      renderDelete();
-      expression = expression.slice(0, -1) + buttonValueText;
-      renderDisplay( expression );
-      return
-    }
-
-    expression += buttonValueText;
-    renderDisplay( expression );
-    isOperatorNotOneInARow = true;
-  });
+  button.addEventListener('click', handleOperator( button ));
 });
 
-UI_ELEMENTS.EQUAL_BUTTON.addEventListener('click', () => {
-  expression = parseExpressionString( expression );
-  renderEqual( expression );
-  isOperatorNotOneInARow = false;
-});
+UI_ELEMENTS.EQUAL_BUTTON.addEventListener('click', calculateExpression);
 
-UI_ELEMENTS.CLEAR_BUTTON.addEventListener('click', () => {
-  renderClear();
-  expression = '';
-  isOperatorNotOneInARow = false;
-});
+UI_ELEMENTS.CLEAR_BUTTON.addEventListener('click', clearAll);
 
-UI_ELEMENTS.DELETE_BUTTON.addEventListener('click', () => {
+UI_ELEMENTS.DELETE_BUTTON.addEventListener('click', deleteLastChar);
+
+function deleteLastChar() {
   renderDelete();
   expression = expression.slice(0, -1);
   isOperatorNotOneInARow = false;
@@ -87,4 +63,43 @@ UI_ELEMENTS.DELETE_BUTTON.addEventListener('click', () => {
   if ( isOperatorLastChar ) {
     isOperatorNotOneInARow = true;
   };
-});
+};
+
+function clearAll() {
+  renderClear();
+  expression = '';
+  isOperatorNotOneInARow = false;
+}
+
+function calculateExpression() {
+  expression = parseExpressionString( expression );
+  renderEqual( expression );
+  isOperatorNotOneInARow = false;
+}
+
+function handleOperator(operatorElement) {
+  const buttonValue = operatorElement.textContent.trim();
+
+  return function() {
+    if ( isOperatorNotOneInARow ) {
+      renderDelete();
+      expression = expression.slice(0, -1) + buttonValue;
+      renderDisplay( expression );
+      return
+    }
+  
+    expression += buttonValue;
+    renderDisplay( expression );
+    isOperatorNotOneInARow = true;
+  }
+}
+
+function handleNumber(numberElement) {
+  const buttonValue = numberElement.textContent.trim();
+
+  return function() {
+    expression += buttonValue;
+    renderDisplay( expression );
+    isOperatorNotOneInARow = false;
+  }
+}
