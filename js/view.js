@@ -48,6 +48,5 @@ export function renderEqual(visibleExpression) {
 
   if ( visibleExpression.length >= 7 ) {
     UI_ELEMENTS.CALCULATOR_OUTPUT.textContent = visibleExpression.slice( 0, 4 ) + '...';
-    return
   }
 }

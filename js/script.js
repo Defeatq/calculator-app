@@ -72,7 +72,7 @@ function clearAll() {
 }
 
 function calculateExpression() {
-  expression = parseExpressionString( expression );
+  expression = String(parseExpressionString( expression ));
   renderEqual( expression );
   isOperatorNotOneInARow = false;
 }
