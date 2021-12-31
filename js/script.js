@@ -25,7 +25,7 @@ export function Calc(operator, arg1, arg2) {
   const isNotValid = !isFinite( listOfAvailableOperators[operator] );
 
   if ( isNotValid ) {
-    throw new Error('Unexpected Infinity value')
+    throw new Error( 'Unexpected Infinity value' )
   }
 
   return listOfAvailableOperators[operator]
@@ -54,11 +54,11 @@ UI_ELEMENTS.CLEAR_BUTTON.addEventListener('click', clearAll);
 UI_ELEMENTS.DELETE_BUTTON.addEventListener('click', deleteLastChar);
 
 function deleteLastChar() {
-  renderDelete();
-  expression = expression.slice(0, -1);
+  expression = expression.slice( 0, -1 );
+  renderDelete( expression );
   isOperatorNotOneInARow = false;
 
-  const isOperatorLastChar = AVAILABLE_OPERATORS.includes(UI_ELEMENTS.CALCULATOR_OUTPUT.textContent.trim().slice(-1));
+  const isOperatorLastChar = AVAILABLE_OPERATORS.includes(UI_ELEMENTS.CALCULATOR_OUTPUT.textContent.trim().slice( -1 ));
   
   if ( isOperatorLastChar ) {
     isOperatorNotOneInARow = true;
@@ -82,8 +82,8 @@ function handleOperator(operatorElement) {
 
   return function() {
     if ( isOperatorNotOneInARow ) {
-      renderDelete();
-      expression = expression.slice(0, -1) + buttonValue;
+      expression = expression.slice( 0, -1 ) + buttonValue;
+      renderDelete( expression );
       renderDisplay( expression );
       return
     }
