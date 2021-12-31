@@ -9,7 +9,7 @@ export const UI_ELEMENTS = {
 
 export function renderDisplay(visibleExpression) {
   UI_ELEMENTS.CALCULATOR_OUTPUT.textContent = visibleExpression;
-  
+
   if ( visibleExpression.length >= 7 ) {
     UI_ELEMENTS.CALCULATOR_OUTPUT.textContent = '...' + visibleExpression.slice( -4 );
   }
@@ -45,7 +45,8 @@ export function renderDelete(visibleExpression) {
 export function renderEqual(visibleExpression) {
   UI_ELEMENTS.CALCULATOR_OUTPUT.textContent = visibleExpression;
 
-  if ( visibleExpression >= 7 ) {
+  if ( visibleExpression.length >= 7 ) {
     UI_ELEMENTS.CALCULATOR_OUTPUT.textContent = visibleExpression.slice( 0, 4 ) + '...';
+    return
   }
 }
